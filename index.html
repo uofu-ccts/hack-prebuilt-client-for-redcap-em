@@ -5,6 +5,7 @@
 <!-- OPTIONALLY: trim the window's location to get the full path -->
 <script>
 var location = window.location.href
+// an example location: https://redcap.utah.edu/redcap_v11.4.4/ExternalModules/?prefix=external_module_name&page=build%2Findex.html
 // Find the '_' in the url where REDCap urls include the version name, and trim
 var urlBase = location.substring(0, (location.indexOf("_") - 7))
 window.moduleClientPath = urlBase + window.homeUrl
@@ -33,7 +34,7 @@ document.head.appendChild(addStyleSheet2)
 <meta name="viewport" content="width=device-width,initial-scale=1"/><meta name="theme-color" content="#000000"/>
 <title>Example Page</title>
 </head><body><noscript>You need to enable JavaScript to run this app.</noscript><div id="root"></div>
-<!-- Add config path for API paths -->
+<!--OPTIONALLY Add config path for API paths, this can be updated after build -->
 <script>
 var addConfig = document.createElement('script')
 addConfig.setAttribute('src', window.homeUrl + "config.js")
