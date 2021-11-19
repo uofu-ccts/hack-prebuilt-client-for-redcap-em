@@ -1,0 +1,2 @@
+### Example of updated build/index.html file for REDCap deployments
+Essentially, the strategy here is to to have your client's index.html file build all of it's links dynamically using the document object and window variables that are also available throughout the application.
