@@ -1,0 +1,52 @@
+<!-- A couple of hacks for allowing pre-built React js clients to find relative files on REDCap servers -->
+<!doctype html><html lang="en"><head><meta charset="utf-8"/>
+<!-- set relative path to build directory for your environment -->
+<script>window.homeUrl = "/modules/external_module_name_v1.0/build/"</script>
+<!-- OPTIONALLY: trim the window's location to get the full path -->
+<script>
+var location = window.location.href
+// Find the '_' in the url where REDCap urls include the version name, and trim
+var urlBase = location.substring(0, (location.indexOf("_") - 7))
+window.moduleClientPath = urlBase + window.homeUrl
+</script>
+<!-- append links using homeUrl variable or optionally the moduleClientPath variable -->
+<!-- Also may be helpful to use these window variables in your code -->
+<script>
+var addIcon = document.createElement('link') 
+addIcon.setAttribute('href', window.homeUrl + 'favicon.png')
+addIcon.setAttribute('rel', "shortcut icon")
+addIcon.setAttribute('type', "image/png")
+document.head.appendChild(addIcon)
+var addManifest = document.createElement('link') 
+addManifest.setAttribute('href', window.homeUrl + 'manifest.json')
+addManifest.setAttribute('rel', "manifest")
+document.head.appendChild(addManifest) 
+var addStyleSheet = document.createElement('link')
+addStyleSheet.setAttribute('href', window.homeUrl + 'static/css/3.266846fb.chunk.css')
+addStyleSheet.setAttribute('rel', 'stylesheet')
+document.head.appendChild(addStyleSheet) 
+var addStyleSheet2 = document.createElement('link')
+addStyleSheet2.setAttribute('href', window.homeUrl + 'static/css/main.a500c20c.chunk.css')
+addStyleSheet2.setAttribute('rel', 'stylesheet')
+document.head.appendChild(addStyleSheet2) 
+</script>
+<meta name="viewport" content="width=device-width,initial-scale=1"/><meta name="theme-color" content="#000000"/>
+<title>Example Page</title>
+</head><body><noscript>You need to enable JavaScript to run this app.</noscript><div id="root"></div>
+<!-- Add config path for API paths -->
+<script>
+var addConfig = document.createElement('script')
+addConfig.setAttribute('src', window.homeUrl + "config.js")
+document.appendChild(addConfig)
+</script>
+<script>!function(e){function t(t){for(var n,c,i=t[0],a=t[1],l=t[2],s=0,p=[];s<i.length;s++)c=i[s],Object.prototype.hasOwnProperty.call(o,c)&&o[c]&&p.push(o[c][0]),o[c]=0;for(n in a)Object.prototype.hasOwnProperty.call(a,n)&&(e[n]=a[n]);for(f&&f(t);p.length;)p.shift()();return u.push.apply(u,l||[]),r()}function r(){for(var e,t=0;t<u.length;t++){for(var r=u[t],n=!0,i=1;i<r.length;i++){var a=r[i];0!==o[a]&&(n=!1)}n&&(u.splice(t--,1),e=c(c.s=r[0]))}return e}var n={},o={1:0},u=[];function c(t){if(n[t])return n[t].exports;var r=n[t]={i:t,l:!1,exports:{}};return e[t].call(r.exports,r,r.exports,c),r.l=!0,r.exports}c.e=function(e){var t=[],r=o[e];if(0!==r)if(r)t.push(r[2]);else{var n=new Promise((function(t,n){r=o[e]=[t,n]}));t.push(r[2]=n);var u,i=document.createElement("script");i.charset="utf-8",i.timeout=120,c.nc&&i.setAttribute("nonce",c.nc),i.src=function(e){return c.p+"static/js/"+({}[e]||e)+"."+{2:"6f0904ef",4:"d3c65242",5:"342268f0"}[e]+".chunk.js"}(e);var a=new Error;u=function(t){i.onerror=i.onload=null,clearTimeout(l);var r=o[e];if(0!==r){if(r){var n=t&&("load"===t.type?"missing":t.type),u=t&&t.target&&t.target.src;a.message="Loading chunk "+e+" failed.\n("+n+": "+u+")",a.name="ChunkLoadError",a.type=n,a.request=u,r[1](a)}o[e]=void 0}};var l=setTimeout((function(){u({type:"timeout",target:i})}),12e4);i.onerror=i.onload=u,document.head.appendChild(i)}return Promise.all(t)},c.m=e,c.c=n,c.d=function(e,t,r){c.o(e,t)||Object.defineProperty(e,t,{enumerable:!0,get:r})},c.r=function(e){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},c.t=function(e,t){if(1&t&&(e=c(e)),8&t)return e;if(4&t&&"object"==typeof e&&e&&e.__esModule)return e;var r=Object.create(null);if(c.r(r),Object.defineProperty(r,"default",{enumerable:!0,value:e}),2&t&&"string"!=typeof e)for(var n in e)c.d(r,n,function(t){return e[t]}.bind(null,n));return r},c.n=function(e){var t=e&&e.__esModule?function(){return e.default}:function(){return e};return c.d(t,"a",t),t},c.o=function(e,t){return Object.prototype.hasOwnProperty.call(e,t)},c.p=window.homeUrl,c.oe=function(e){throw console.error(e),e};var i=this.webpackJsonpbcclient=this.webpackJsonpbcclient||[],a=i.push.bind(i);i.push=t,i=i.slice();for(var l=0;l<i.length;l++)t(i[l]);var f=a;r()}([])</script>
+<!-- Append bundled Js files -->
+<script>
+var js1 = document.createElement('script')
+js1.setAttribute('src', window.homeUrl + "static/js/3.3277d728.chunk.js")
+document.body.appendChild(js1)
+var js2 = document.createElement('script')
+js2.setAttribute('src', window.homeUrl + "static/js/main.6fe7ec0d.chunk.js")
+document.body.appendChild(js2)
+</script>
+</body></html>
